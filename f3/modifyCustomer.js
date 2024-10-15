@@ -10,28 +10,47 @@ let customers = [
     {id:9, name:"Ashlie Wozencraft", age:23, address:{city:"Espinosa", street:"78 Pepper Wood Terrace", house:11}, newsLetter: false},
     {id:10, name:"Jonas Tungate", age:83, address:{city:"Padangulaktanding", street:"224 Manley Drive", house:49}, newsLetter: true}
 ]
-function isAddress(address) {    
-    return (typeof address) === "object";
-}
 
-function isCustomer(name, age, address, newsLetter) {    
-    customers.forEach((array) => {
-        if (array.name === name){
-            if (array.age === age && array.address === address && array.newsLetter === newsLetter){
-                return true;
-            }
-        }
-    });
+function isAddress(address) {
+    if ((typeof address) === "object"){
+        return (typeof address["city"] === "string") && (typeof address["street"] === "string") && (typeof address["house"] === "number");
+    }
     return false;
 }
+
+function isCustomer(name, age, address, newsLetter) {
+    if (
+        (typeof name === "string") 
+        && (typeof age === "number") 
+        && isAddress(address) 
+        && (typeof newsLetter === "boolean") 
+    ){
+        customers.forEach((array) => {
+            if (array.name === name){
+                if (array.age === age && array.address === address && array.newsLetter === newsLetter){
+                    return true;
+                }
+            }
+        });
+    };
+    return false;
+}
+
 function modifyCustomer (customer){
-    customers.forEach((array) => {
-        if (array.id === customer.id){
-            customers[customers.indexOf(array)] = customer;
-            return true;
-        }
-    });
-    return false;;
+    if (
+        (typeof name === "string") 
+        && (typeof age === "number") 
+        && isAddress(address) 
+        && (typeof newsLetter === "boolean") 
+        && isCustomer(customer)
+    ){
+        customers.forEach((array) => {
+            if (array.id === customer.id){
+                customers[customers.indexOf(array)] = customer;
+            }
+        });
+    };
+    return customers;
 }
 
 module.exports = modifyCustomer;

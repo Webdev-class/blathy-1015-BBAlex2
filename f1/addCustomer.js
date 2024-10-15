@@ -12,22 +12,38 @@ let customers = [
 ]
 
 function isAddress(address) {
-    return (typeof address) === "object";
+    if ((typeof address) === "object"){
+        return (typeof address["city"] === "string") && (typeof address["street"] === "string") && (typeof address["house"] === "number");
+    }
+    return false;
 }
 
 function isCustomer(name, age, address, newsLetter) {
-    customers.forEach((array) => {
-        if (array.name === name){
-            if (array.age === age && array.address === address && array.newsLetter === newsLetter){
-                return true;
+    if (
+        (typeof name === "string") 
+        && (typeof age === "number") 
+        && isAddress(address) 
+        && (typeof newsLetter === "boolean") 
+    ){
+        customers.forEach((array) => {
+            if (array.name === name){
+                if (array.age === age && array.address === address && array.newsLetter === newsLetter){
+                    return true;
+                }
             }
-        }
-    });
+        });
+    }
     return false;
 }
 
 function addCustomer(name, age, address, newsLetter) {
-    if ((typeof name === "string") && (typeof age === "number") && (typeof address == "object") && (typeof newsLetter === "boolean")){
+    if (
+        (typeof name === "string") 
+        && (typeof age === "number") 
+        && isAddress(address) 
+        && (typeof newsLetter === "boolean") 
+        && !isCustomer(name,age,address,newsLetter)
+    ){
         const newUser = {
             id: customers.length+1,
             name: name,
@@ -36,8 +52,7 @@ function addCustomer(name, age, address, newsLetter) {
             newsLetter: newsLetter
         }
         customers.push(newUser);
-        return true;
     }
-    return false;
+    return customers;
 }
 module.exports = addCustomer;
