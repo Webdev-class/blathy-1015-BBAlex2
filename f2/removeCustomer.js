@@ -17,6 +17,6 @@ function removeCustomer(id) {
             customers.splice(customers.indexOf(array),1);
         }
     });
-    console.log(customers);
+    return customers;
 }
 module.exports = removeCustomer;
