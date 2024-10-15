@@ -12,14 +12,28 @@ let customers = [
 ]
 
 function isAddress(address) {
-    //TODO
+    return (typeof address) === "object";
 }
 
 function isCustomer(name, age, address, newsLetter) {
-    //TODO
+    customers.forEach((array) => {
+        if (array.name === name){
+            if (array.age === age && array.address === address && array.newsLetter === newsLetter){
+                return true;
+            }
+        }
+    });
+    return false;
 }
 
 function addCustomer(name, age, address, newsLetter) {
-    //TODO
+    const newUser = {
+        id: customers.length+1,
+        name: name,
+        age: age,
+        address: address,
+        newsLetter: newsLetter
+    }
+    customers.push(newUser);
 }
 module.exports = addCustomer;
