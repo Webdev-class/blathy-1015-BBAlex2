@@ -15,8 +15,9 @@ function removeCustomer(id) {
     customers.forEach((array) => {
         if (array.id === id){
             customers.splice(customers.indexOf(array),1);
+            return customers;
         }
     });
-    return customers;
+    return false;
 }
 module.exports = removeCustomer;

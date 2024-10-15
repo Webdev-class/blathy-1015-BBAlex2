@@ -37,20 +37,17 @@ function isCustomer(name, age, address, newsLetter) {
 }
 
 function modifyCustomer (customer){
-    if (
-        (typeof name === "string") 
-        && (typeof age === "number") 
-        && isAddress(address) 
-        && (typeof newsLetter === "boolean") 
-        && isCustomer(customer)
-    ){
-        customers.forEach((array) => {
-            if (array.id === customer.id){
-                customers[customers.indexOf(array)] = customer;
-            }
-        });
+    if (typeof customer == "object"){
+        if (isCustomer(customer.name,customer.age,customer.address,customer.newsLetter)){
+            customers.forEach((array) => {
+                if (array.id === customer.id){
+                    customers[customers.indexOf(array)] = customer;
+                    return customers;
+                }
+            });
+        }
     };
-    return customers;
+    return false;
 }
 
 module.exports = modifyCustomer;
