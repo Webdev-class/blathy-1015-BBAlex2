@@ -11,14 +11,25 @@ let customers = [
     {id:10, name:"Jonas Tungate", age:83, address:{city:"Padangulaktanding", street:"224 Manley Drive", house:49}, newsLetter: true}
 ]
 function isAddress(address) {    
-    //TODO
+    return (typeof address) === "object";
 }
 
 function isCustomer(name, age, address, newsLetter) {    
-    //TODO
+    customers.forEach((array) => {
+        if (array.name === name){
+            if (array.age === age && array.address === address && array.newsLetter === newsLetter){
+                return true;
+            }
+        }
+    });
+    return false;
 }
 function modifyCustomer (customer){
-    //TODO
+    customers.forEach((array) => {
+        if (array.id === customer.id){
+            customers[customers.indexOf(array)] = customer;
+        }
+    });
 }
 
 module.exports = modifyCustomer;

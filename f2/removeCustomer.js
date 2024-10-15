@@ -12,6 +12,10 @@ let customers = [
 ]
 
 function removeCustomer(id) {
-    //TODO
+    customers.forEach((array) => {
+        if (array.id === id){
+            customers.splice(customers.indexOf(array),1);
+        }
+    });
 }
 module.exports = removeCustomer;
