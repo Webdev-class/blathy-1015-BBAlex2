@@ -12,11 +12,13 @@ let customers = [
 ]
 
 function removeCustomer(id) {
+    let success = false;
     customers.forEach((array) => {
         if (array.id === id){
             customers.splice(customers.indexOf(array),1);
+            success = true;
         }
     });
-    return customers;
+    return (success === true)? customers : false;
 }
 module.exports = removeCustomer;
