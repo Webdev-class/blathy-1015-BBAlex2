@@ -52,7 +52,7 @@ function addCustomer(name, age, address, newsLetter) {
             newsLetter: newsLetter
         }
         customers.push(newUser);
-        return customers;
+        return newUser;
     }
     return false;
 }

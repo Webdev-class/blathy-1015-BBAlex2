@@ -42,7 +42,7 @@ function modifyCustomer (customer){
             customers.forEach((array) => {
                 if (array.id === customer.id){
                     customers[customers.indexOf(array)] = customer;
-                    return customers;
+                    return customer;
                 }
             });
         }
