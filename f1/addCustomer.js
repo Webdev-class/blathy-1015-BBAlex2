@@ -27,14 +27,17 @@ function isCustomer(name, age, address, newsLetter) {
 }
 
 function addCustomer(name, age, address, newsLetter) {
-    const newUser = {
-        id: customers.length+1,
-        name: name,
-        age: age,
-        address: address,
-        newsLetter: newsLetter
+    if ((typeof name === "string") && (typeof age === "number") && (typeof address == "object") && (typeof newsLetter === "boolean")){
+        const newUser = {
+            id: customers.length+1,
+            name: name,
+            age: age,
+            address: address,
+            newsLetter: newsLetter
+        }
+        customers.push(newUser);
+        return true;
     }
-    customers.push(newUser);
-    return customers;
+    return false;
 }
 module.exports = addCustomer;

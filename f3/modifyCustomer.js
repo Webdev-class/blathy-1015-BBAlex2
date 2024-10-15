@@ -28,9 +28,10 @@ function modifyCustomer (customer){
     customers.forEach((array) => {
         if (array.id === customer.id){
             customers[customers.indexOf(array)] = customer;
+            return true;
         }
     });
-    return customers;
+    return false;;
 }
 
 module.exports = modifyCustomer;
