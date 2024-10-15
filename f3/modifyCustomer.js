@@ -30,6 +30,7 @@ function modifyCustomer (customer){
             customers[customers.indexOf(array)] = customer;
         }
     });
+    console.log(customers);
 }
 
 module.exports = modifyCustomer;

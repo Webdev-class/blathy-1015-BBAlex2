@@ -35,5 +35,6 @@ function addCustomer(name, age, address, newsLetter) {
         newsLetter: newsLetter
     }
     customers.push(newUser);
+    console.log(customers);
 }
 module.exports = addCustomer;
